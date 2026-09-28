@@ -3,28 +3,66 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
 
+// Huduma za LISAN HUB
 const services = [
-  { id: 1, name: "Kutengeneza CV", description: "Tengeneza CV ya kitaalamu.", tokens: 5, category: "Kazi" },
-  { id: 2, name: "Barua rasmi", description: "Andaa barua rasmi kulingana na mahitaji yako.", tokens: 3, category: "Nyaraka" },
-  { id: 3, name: "Tangazo la biashara", description: "Tengeneza tangazo la kuvutia la biashara yako.", tokens: 3, category: "Biashara" },
-  { id: 4, name: "Social Media Caption", description: "Pata caption ya Facebook, Instagram au TikTok.", tokens: 2, category: "Mitandao" },
-  { id: 5, name: "Tafsiri", description: "Tafsiri Kiswahili na English.", tokens: 2, category: "Lugha" }
+  {
+    id: 1,
+    name: "Kutengeneza CV",
+    description: "Tengeneza CV ya kitaalamu",
+    price: 5
+  },
+  {
+    id: 2,
+    name: "Barua Rasmi",
+    description: "Andaa barua rasmi mbalimbali",
+    price: 3
+  },
+  {
+    id: 3,
+    name: "Tangazo la Biashara",
+    description: "Tengeneza tangazo la biashara",
+    price: 3
+  },
+  {
+    id: 4,
+    name: "Caption za Mitandao",
+    description: "Tengeneza captions za kuvutia",
+    price: 2
+  },
+  {
+    id: 5,
+    name: "Tafsiri",
+    description: "Tafsiri maandishi kutoka lugha moja kwenda nyingine",
+    price: 2
+  }
 ];
 
+// API ya kuangalia kama server inafanya kazi
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true, app: "LISAN HUB", version: "MVP 1.0" });
+  res.json({
+    success: true,
+    message: "LISAN HUB API inafanya kazi"
+  });
 });
 
+// API ya huduma
 app.get("/api/services", (req, res) => {
-  res.json(services);
+  res.json({
+    success: true,
+    services
+  });
 });
 
+// Serve website
+app.use(express.static(path.join(__dirname, "public")));
+
+// Homepage
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
