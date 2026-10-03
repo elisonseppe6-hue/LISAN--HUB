@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f5f7fb; color: #172033; }
+.topbar { height: 64px; background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 7%; border-bottom: 1px solid #e8ebf2; }
+.logo { font-size: 22px; font-weight: 800; }
+.logo span { font-weight: 400; }
+.login-btn { border: 1px solid #172033; background: #fff; color: #172033; border-radius: 8px; padding: 9px 18px; cursor: pointer; }
+.hero { text-align: center; padding: 80px 20px; background: #fff; }
+.badge { font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+.hero h1 { font-size: 42px; margin: 12px 0; }
+.hero p { max-width: 620px; margin: 0 auto 25px; line-height: 1.6; color: #5d6678; }
+.primary { border: 0; background: #172033; color: #fff; padding: 13px 22px; border-radius: 9px; cursor: pointer; }
+.services-section { padding: 55px 7%; }
+.section-title { text-align: center; margin-bottom: 30px; }
+.section-title p { color: #687286; }
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.card { background: #fff; border: 1px solid #e5e8ef; border-radius: 14px; padding: 22px; }
+.card h3 { margin-top: 0; }
+.card p { color: #697386; line-height: 1.5; min-height: 45px; }
+.category { font-size: 12px; color: #687286; }
+.tokens { font-weight: 700; margin: 16px 0; }
+.use-btn { width: 100%; border: 0; background: #172033; color: #fff; padding: 11px; border-radius: 8px; cursor: pointer; }
+footer { text-align: center; padding: 30px; color: #697386; background: #fff; }
+@media (max-width: 600px) { .hero h1 { font-size: 34px; } .topbar, .services-section { padding-left: 5%; padding-right: 5%; } }
